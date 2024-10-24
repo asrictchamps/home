@@ -824,24 +824,24 @@
         { image: 'static/gisc.png' }
     ];	
 
-    function createTeacherElement(teacher) {
-        const div = document.createElement('div');
-        div.className = 'w-1/3 p-4 flex-shrink-0';
-        div.innerHTML = `
-            <img src="${timages.image}" alt="${teacher.name}" class="w-24 h-24 rounded-full mx-auto mb-4">
-            <h4 class="text-lg font-semibold text-custom-teal text-center">${teacher.name}</h4>
-            <p class="text-center">${teacher.role}</p>
-        `;
-        return div;
-    }
+function createTeacherElement(teacher, index) {
+    const div = document.createElement('div');
+    div.className = 'w-1/3 p-4 flex-shrink-0';
+    div.innerHTML = `
+	<img src="${timages[index].image}" alt="${teacher.name}" class="w-24 h-24 rounded-full mx-auto mb-4">
+	<h4 class="text-lg font-semibold text-custom-teal text-center">${teacher.name}</h4>
+	<p class="text-center">${teacher.role}</p>
+    `;
+    return div;
+}
 
-    function setupCarousel() {
-        const carousel = document.querySelector('#teacher-carousel > div');
-        carousel.innerHTML = '';
-        teachers.forEach(teacher => {
-            carousel.appendChild(createTeacherElement(teacher));
-        });
-    }
+function setupCarousel() {
+    const carousel = document.querySelector('#teacher-carousel > div');
+    carousel.innerHTML = '';
+    teachers.forEach((teacher, index) => {
+        carousel.appendChild(createTeacherElement(teacher, index));
+    });
+}
 
     function rotateCarousel() {
         const carousel = document.querySelector('#teacher-carousel > div');
