@@ -3,24 +3,773 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css"> <!-- Optional if you're using CSS -->
+    <title>ASR ICT Champions</title>
+    <style>
+        /* Base styling */
+        body {
+            font-family: Calibri, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Header styling */
+        .header {
+            height: 300px; 
+            background-image: url('asrbanner.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .header-content {
+            background: rgba(0, 0, 0, 0.5); 
+            padding: 20px;
+            border-radius: 8px; 
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        /* Flip card styling */
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(3, 1fr); /* Max of 3 columns */
+            margin-top: 20px;
+        }
+
+        /* Media query for responsiveness on smaller screens */
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* Max of 2 columns on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+        }
+
+        .flip-card {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 8px;
+        }
+
+        .flip-card-front {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-back {
+            background-color: #008080;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+        }
+
+        .flip-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a href="home.html" class="hover:text-custom-orange">Home</a></li>
-                <li><a href="about.html" class="hover:text-custom-orange">About</a></li>
-                <li><a href="learn.html" class="hover:text-custom-orange">Learn</a></li>
-                <li><a href="serve.html" class="hover:text-custom-orange">Serve</a></li>
-            </ul>
-        </nav>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>About Us</h1>
+            <p>ICT Champions</p>
+        </div>
     </header>
 
-    <main>
-        <h1>Welcome to the Home Page</h1>
-        <p>This is the content for the home page.</p>
-    </main>
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <p class="greeting" style="color: #008080; font-weight: bold; font-size: 2.5em;">Good afternoon, welcome to ICT Champions!</p>
+        <p>The ASRJC ICT Champions programme is an initiative at Anderson Serangoon Junior College in Singapore, aimed at enhancing digital literacy among students. The programme provides students with opportunities to develop and apply their ICT skills through various activities and projects. ICT Champions act as peer leaders, guiding their schoolmates and participating in events that promote digital literacy skills across the college community. This role helps students gain valuable hard and soft skills as well as leadership abilities through experiential learning and service while contributing to the college's digital initiatives.</p>
+    </div>
+
+    <!-- Flip Cards Section -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-custom-teal mb-4">People</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">Choo Hom Da Gerrard</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/13</p>
+			    <img src="static/choohomdagerrard.webp" alt="Gerrard" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About Gerrard</h3>
+                            <p>Gerrard is a key member of the ICT Champions, focusing on community outreach and digital literacy projects.</p>
+                            <p>Github: <a href="https://github.com/notStinG">notStinG</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">Tan Wei Qing</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/11</p>
+			    <img src="static/tanweiqing.webp" alt="Wei Qing" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About Wei Qing</h3>
+                            <p>Wei Qing specialises in programming and is passionate about teaching others about coding because its so fun</p>
+                            <p>Github: <a href="https://github.com/WEIQ-beepbeep">WEIQ-beepbeep</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">Tan Yi Ming Jaswain</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/08</p>
+			    <img src="static/tanyimingjaswain.webp" alt="Jaswain" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About Jaswain</h3>
+                            <p>Jaswain is involved in various ICT projects and loves exploring new technologies.</p>
+                            <p>Github: <a href="https://github.com/JaswainT">JaswainT</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">PARTHASARATHY KAVIN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/01</p>
+			    <img src="static/PARTHASARATHYKAVIN.png" alt="PARTHASARATHY KAVIN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About PARTHASARATHY KAVIN</h3>
+                            <p>PARTHASARATHY KAVIN is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">PARTHASARATHY KAVIN</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">UMAPATHY NEEL NAVADEEPH</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/01</p>
+			    <img src="static/UMAPATHYNEELNAVADEEPH.png" alt="UMAPATHY NEEL NAVADEEPH" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About UMAPATHY NEEL NAVADEEPH</h3>
+                            <p>UMAPATHY NEEL NAVADEEPH is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">UMAPATHY NEEL NAVADEEPH</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">JAYAVADIVELAN SARAVANAN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/01</p>
+			    <img src="static/JAYAVADIVELANSARAVANAN.png" alt="JAYAVADIVELAN SARAVANAN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About JAYAVADIVELAN SARAVANAN</h3>
+                            <p>JAYAVADIVELAN SARAVANAN is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">JAYAVADIVELAN SARAVANAN</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">THIRUKATTU PALLI RAMKUMAR VINAY</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/01</p>
+			    <img src="static/THIRUKATTUPALLIRAMKUMARVINAY.png" alt="THIRUKATTU PALLI RAMKUMAR VINAY" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About THIRUKATTU PALLI RAMKUMAR VINAY</h3>
+                            <p>THIRUKATTU PALLI RAMKUMAR VINAY is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">THIRUKATTU PALLI RAMKUMAR VINAY</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">LIU YINGXUAN</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/03</p>
+			    <img src="static/LiuYingxuan.jpeg" alt="LIU YINGXUAN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About LIU YINGXUAN</h3>
+                            <p>LIU YINGXUAN is a girl.</p>
+                            <p>Github: <a href="https://github.com/lyx914">lyx914</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">JONATHAN LIM HONG EN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/05</p>
+			    <img src="static/JONATHANLIMHONGEN.png" alt="JONATHAN LIM HONG EN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About JONATHAN LIM HONG EN</h3>
+                            <p>JONATHAN LIM HONG EN is a dude.</p>
+                            <p>Github: <a href="https://github.com/">JONATHAN LIM HONG EN</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+			
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">KOO ZHE RUI</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/06</p>
+			    <img src="static/KOOZHERUI.png" alt="KOO ZHE RUI" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About KOO ZHE RUI</h3>
+                            <p>KOO ZHE RUI is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">KOO ZHE RUI</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">SURECHE YUVAARAJA</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/07</p>
+			    <img src="static/SURECHEYUVAARAJA.png" alt="SURECHE YUVAARAJA" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About SURECHE YUVAARAJA</h3>
+                            <p>SURECHE YUVAARAJA is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">SURECHE YUVAARAJA</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">JAI GANESH KARTHIHEYAN</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/JAIGANESHKARTHIHEYAN.jpeg" alt="JAI GANESH KARTHIHEYAN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About JAI GANESH KARTHIHEYAN</h3>
+                            <p>JAI GANESH KARTHIHEYAN is very gay.</p>
+                            <p>Github: <a href="https://github.com/KARTHI088">KARTHI088</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>				
+			
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">HAW SZE TING, JOELLE</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/hawszetingjoelle.jpg" alt="HAW SZE TING, JOELLE" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About HAW SZE TING, JOELLE</h3>
+                            <p>HAW SZE TING, JOELLE is interested in coding.</p>
+                            <p>Github: <a href="https://github.com/joelle597">joelle597</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">KANG HONGYI XAVIER</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/Xavierkang.webp" alt="KANG HONGYI XAVIER" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About KANG HONGYI XAVIER</h3>
+                            <p>KANG HONGYI XAVIER im a boy.</p>
+                            <p>Github: <a href="https://github.com/Duffelkang">Duffelkang</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">THAW KO KO ZIN</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/THAWKOKOZIN.jpeg" alt="THAW KO KO ZIN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About THAW KO KO ZIN</h3>
+                            <p>THAW KO KO ZIN is a student @ASR.</p>
+                            <p>Github: <a href="https://github.com/TKKZ17">TKKZ17</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>		
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">TORRES TAY RUI YI</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/TorresTayRuiYi.jpeg" alt="TORRES TAY RUI YI" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About TORRES TAY RUI YI</h3>
+                            <p>TORRES TAY RUI YI is just here for fun.</p>
+                            <p>Github: <a href="https://github.com/Serroty">Serroty</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">MATHILDA HO LIANG YING</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/07</p>
+			    <img src="static/MATHILDAHOLIANGYING.png" alt="MATHILDA HO LIANG YING" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About MATHILDA HO LIANG YING</h3>
+                            <p>MATHILDA HO LIANG YING is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">MATHILDA HO LIANG YING</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">TAN WEI HAO, JOEL</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/TanWeiHaoJoel.JPEG" alt="TAN WEI HAO, JOEL" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About TAN WEI HAO, JOEL</h3>
+                            <p>TAN WEI HAO, JOEL is here to learn!.</p>
+                            <p>Github: <a href="https://github.com/JoelTWH">JoelTWH</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">OW WEI XIN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/07</p>
+			    <img src="static/OWWEIXIN.png" alt="OW WEI XIN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About OW WEI XIN</h3>
+                            <p>OW WEI XIN is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">OW WEI XIN</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">TEY KAI FENG</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/07</p>
+			    <img src="static/teykaifeng.png" alt="TEY KAI FENG" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About TEY KAI FENG</h3>
+                            <p>TEY KAI FENG is a guy.</p>
+                            <p>Github: <a href="https://github.com/">TEY KAI FENG</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">PALANISWAMY ASHWIIN KUMAAR</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/07</p>
+			    <img src="static/PALANISWAMYASHWIINKUMAAR.png" alt="PALANISWAMY ASHWIIN KUMAAR" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About PALANISWAMY ASHWIIN KUMAAR</h3>
+                            <p>PALANISWAMY ASHWIIN KUMAAR is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">PALANISWAMY ASHWIIN KUMAAR</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">CHAN ZEVON</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/08</p>
+			    <img src="static/CHANZEVON.jpeg" alt="CHAN ZEVON" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About CHAN ZEVON</h3>
+                            <p>CHAN ZEVON is interested in coding.</p>
+                            <p>Github: <a href="https://github.com/Zev627">CHAN ZEVON</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">RYAN LEE SUI KUANG</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/10</p>
+			    <img src="static/Ryanleesuikuang.png" alt="RYAN LEE SUI KUANG" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About RYAN LEE SUI KUANG</h3>
+                            <p>I like water.</p>
+                            <p>Github: <a href="https://github.com/RLSKM">RLSKM</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">LIM JING XUAN</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/11</p>
+			    <img src="static/limjingxuan.png" alt="LIM JING XUAN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About LIM JING XUAN</h3>
+                            <p>LIM JING XUAN is a bing bong.</p>
+                            <p>Github: <a href="https://github.com/kerlothederlo">kerlothederlo</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">LEO YOONG YIH</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/11</p>
+			    <img src="static/yoongyih.jpg" alt="LEO YOONG YIH" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About LEO YOONG YIH</h3>
+                            <p>Same name most places: yoongyih</p>
+                            <p>Github: <a href="https://github.com/yoongyih">yoongyih</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">DANIYAL MIKHAIL BIN RIZAL</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/12</p>
+			    <img src="static/DANIYALMIKHAILBINRIZAL.webp" alt="DANIYAL MIKHAIL BIN RIZAL" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About DANIYAL MIKHAIL BIN RIZAL</h3>
+                            <p>Hello I can somewhat code somehow.</p>
+                            <p>Github: <a href="https://github.com/DWizard11">DWizard11</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">CHERRY KYAW KYAW</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/13</p>
+			    <img src="static/cherrykyaw.jpeg" alt="CHERRY KYAW KYAW" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About CHERRY KYAW KYAW</h3>
+                            <p>CHERRY KYAW KYAW is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/Cherry3939">Cherry3939</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">LOH AIK SHUN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/14</p>
+			    <img src="static/LOHAIKSHUN.png" alt="LOH AIK SHUN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About LOH AIK SHUN</h3>
+                            <p>LOH AIK SHUN is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">LOH AIK SHUN</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">LI JIAYUAN</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/17</p>
+			    <img src="static/LIJIAYUAN.webp" alt="LI JIAYUAN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About LI JIAYUAN</h3>
+                            <p>LI JIAYUAN is a cute little girl.</p>
+                            <p>Github: <a href="https://github.com/JY-0112">JY-0112</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">LAU YU KANG</h3>
+                            <p class="text-gray-600 text-center">ICT Champion 25/17</p>
+			    <img src="static/LAUYUKANG.jpeg" alt="LAU YU KANG" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About LAU YU KANG</h3>
+                            <p>LAU YU KANG is a student @ASR.</p>
+                            <p>Github: <a href="https://github.com/Youngadventuyrer">Youngadventuyrer</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">LIM JIA YU</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/19</p>
+			    <img src="static/LIMJIAYU.png" alt="LIM JIA YU" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About LIM JIA YU</h3>
+                            <p>LIM JIA YU is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">LIM JIA YU</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">LIM JIA RUI</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/20</p>
+			    <img src="static/LIMJIARUI.png" alt="LIM JIA RUI" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About LIM JIA RUI</h3>
+                            <p>LIM JIA RUI is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">LIM JIA RUI</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">ASHRUTHI</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/20</p>
+			    <img src="static/ASHRUTHI.png" alt="ASHRUTHI" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About ASHRUTHI</h3>
+                            <p>ASHRUTHI is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">ASHRUTHI</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">ASHLEY TAN I WERN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/23</p>
+			    <img src="static/ASHLEYTANIWERN.png" alt="ASHLEY TAN I WERN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About ASHLEY TAN I WERN</h3>
+                            <p>ASHLEY TAN I WERN is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">ASHLEY TAN I WERN</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-teal text-center">DELVYN YEO</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/24</p>
+			    <img src="static/DELVYNYEO.png" alt="DELVYN YEO" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                       <div class="flip-card-back bg-teal-500">
+                            <h3 class="bg-teal text-xl font-semibold">About DELVYN YEO</h3>
+                            <p>DELVYN YEO is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">DELVYN YEO</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-white p-4 rounded shadow">
+                            <h3 class="text-xl font-semibold text-custom-orange text-center">ARI GNANAVEL THAMIHZARASAN</h3>
+                            <p class="text-gray-600 text-center">ICT Rep 25/28</p>
+			    <img src="static/ARIGNANAVELTHAMIHZARASAN.png" alt="ARI GNANAVEL THAMIHZARASAN" class="w-full h-48 object-cover mb-4 rounded">
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-semibold">About ARI GNANAVEL THAMIHZARASAN</h3>
+                            <p>ARI GNANAVEL THAMIHZARASAN is a cute little boy.</p>
+                            <p>Github: <a href="https://github.com/">ARI GNANAVEL THAMIHZARASAN</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="mb-12 bg-white p-6 rounded-xl shadow-lg border-t-4 border-custom-teal">
+        <h3 class="text-2xl font-bold text-custom-teal mb-4">Teachers in Charge</h3>
+        <div id="teacher-carousel" class="relative overflow-hidden">
+            <div class="flex transition-transform duration-500 ease-in-out">
+                <!-- Carousel items dynamically added by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 ASRJC ICT Champions</p>
+    </footer>
+
+    <script>
+        // Dynamic Greeting
+        function updateGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const currentHour = new Date().getHours();
+            let greeting;
+    
+            if (currentHour < 12) {
+                greeting = 'Good morning';
+            } else if (currentHour < 18) {
+                greeting = 'Good afternoon';
+            } else {
+                greeting = 'Good evening';
+            }
+    
+            greetingElement.textContent = `${greeting}, welcome to ICT Champions!`;
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            updateGreeting();
+            setInterval(updateGreeting, 60000);
+        });
+    
+        // Teachers in Charge Carousel
+        const teachers = [
+            { name: 'Mr Oh Chee Tiong', role: 'Advisor, HOD ICT, Physics' },
+            { name: 'Ms Koh Wenting', role: 'SH ICT, Project Work' },
+            { name: 'Mr Kenneth Khoo Jin Yee', role: 'Mathematics' },
+            { name: 'Mr Gi Soong Chee', role: 'Computing' }
+        ];
+        const timages = [
+            { image: 'static/ohct.png' },
+            { image: 'static/kohwt.png' },
+            { image: 'static/kkhoojy.png' },
+            { image: 'static/gisc.png' }
+        ];	
+    
+    function createTeacherElement(teacher, index) {
+        const div = document.createElement('div');
+        div.className = 'w-1/3 p-4 flex-shrink-0';
+        div.innerHTML = `
+        <img src="${timages[index].image}" alt="${teacher.name}" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h4 class="text-lg font-semibold text-custom-teal text-center">${teacher.name}</h4>
+        <p class="text-center">${teacher.role}</p>
+        `;
+        return div;
+    }
+    
+    function setupCarousel() {
+        const carousel = document.querySelector('#teacher-carousel > div');
+        carousel.innerHTML = '';
+        teachers.forEach((teacher, index) => {
+            carousel.appendChild(createTeacherElement(teacher, index));
+        });
+    }
+    
+        function rotateCarousel() {
+            const carousel = document.querySelector('#teacher-carousel > div');
+            const firstItem = carousel.firstElementChild;
+            const itemWidth = firstItem.offsetWidth;
+    
+            carousel.style.transition = 'transform 0.5s ease-in-out';
+            carousel.style.transform = `translateX(-${itemWidth}px)`;
+    
+            setTimeout(() => {
+                carousel.style.transition = 'none';
+                carousel.style.transform = 'translateX(0)';
+                carousel.appendChild(firstItem);
+            }, 500);
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            setupCarousel();
+            setInterval(rotateCarousel, 3000);
+        });
+    </script>
+
 </body>
 </html>
