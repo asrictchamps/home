@@ -41,29 +41,33 @@
             font-size: 1.2em;
         }
 
-        /* Flip card styling */
+        /* Grid styling */
         .grid {
             display: grid;
             gap: 16px;
-            grid-template-columns: repeat(3, 1fr); /* Max of 3 columns */
+            grid-template-columns: repeat(3, 1fr);
             margin-top: 20px;
         }
 
-        /* Media query for responsiveness on smaller screens */
         @media (max-width: 1024px) {
             .grid {
-                grid-template-columns: repeat(2, 1fr); /* Max of 2 columns on medium screens */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .grid {
-                grid-template-columns: 1fr; /* 1 column on small screens */
+                grid-template-columns: 1fr;
             }
         }
 
+        /* Flip card styling */
         .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
             perspective: 1000px;
+            margin-bottom: 20px;
         }
 
         .flip-card-inner {
@@ -73,7 +77,7 @@
             text-align: center;
             transition: transform 0.6s;
             transform-style: preserve-3d;
-            overflow: hidden;
+            cursor: pointer;
         }
 
         .flip-card:hover .flip-card-inner {
@@ -101,6 +105,9 @@
             color: white;
             transform: rotateY(180deg);
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .flip-card img {
@@ -108,6 +115,24 @@
             height: 200px;
             object-fit: cover;
             border-radius: 8px;
+        }
+
+        /* Carousel styling */
+        #teacher-carousel {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #teacher-carousel > div {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .teacher-item {
+            flex: 0 0 33.333%;
+            padding: 1rem;
+            text-align: center;
         }
 
         /* Footer styling */
@@ -120,8 +145,8 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <!-- Header Section -->
     <header class="header">
         <div class="header-content">
@@ -132,13 +157,14 @@
 
     <!-- Main Content Section -->
     <div class="main-content">
-        <p class="greeting" style="color: #008080; font-weight: bold; font-size: 2.5em;">Good afternoon, welcome to ICT Champions!</p>
+        <p id="greeting" style="color: #008080; font-weight: bold; font-size: 2.5em;">Welcome to ICT Champions!</p>
         <p>The ASRJC ICT Champions programme is an initiative at Anderson Serangoon Junior College in Singapore, aimed at enhancing digital literacy among students. The programme provides students with opportunities to develop and apply their ICT skills through various activities and projects. ICT Champions act as peer leaders, guiding their schoolmates and participating in events that promote digital literacy skills across the college community. This role helps students gain valuable hard and soft skills as well as leadership abilities through experiential learning and service while contributing to the college's digital initiatives.</p>
     </div>
 
-    <!-- Flip Cards Section -->
+    <!-- People Section -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-custom-teal mb-4">People</h2>
+        <h2 style="color: #008080; font-size: 2em; margin-top: 30px;">People</h2>
+        <div class="grid">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -678,13 +704,15 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
-    <section class="mb-12 bg-white p-6 rounded-xl shadow-lg border-t-4 border-custom-teal">
-        <h3 class="text-2xl font-bold text-custom-teal mb-4">Teachers in Charge</h3>
+    <!-- Teachers Section -->
+    <section class="mb-12 bg-white p-6 rounded-xl shadow-lg" style="border-top: 4px solid #008080;">
+        <h3 style="color: #008080; font-size: 2em; margin-bottom: 20px;">Teachers in Charge</h3>
         <div id="teacher-carousel" class="relative overflow-hidden">
             <div class="flex transition-transform duration-500 ease-in-out">
-                <!-- Carousel items dynamically added by JavaScript -->
+                <!-- Carousel items will be added by JavaScript -->
             </div>
         </div>
     </section>
@@ -711,65 +739,65 @@
     
             greetingElement.textContent = `${greeting}, welcome to ICT Champions!`;
         }
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            updateGreeting();
-            setInterval(updateGreeting, 60000);
-        });
-    
-        // Teachers in Charge Carousel
+
+        // Teachers Data
         const teachers = [
             { name: 'Mr Oh Chee Tiong', role: 'Advisor, HOD ICT, Physics' },
             { name: 'Ms Koh Wenting', role: 'SH ICT, Project Work' },
             { name: 'Mr Kenneth Khoo Jin Yee', role: 'Mathematics' },
             { name: 'Mr Gi Soong Chee', role: 'Computing' }
         ];
+        
         const timages = [
             { image: 'static/ohct.png' },
             { image: 'static/kohwt.png' },
             { image: 'static/kkhoojy.png' },
             { image: 'static/gisc.png' }
-        ];	
-    
-    function createTeacherElement(teacher, index) {
-        const div = document.createElement('div');
-        div.className = 'w-1/3 p-4 flex-shrink-0';
-        div.innerHTML = `
-        <img src="${timages[index].image}" alt="${teacher.name}" class="w-24 h-24 rounded-full mx-auto mb-4">
-        <h4 class="text-lg font-semibold text-custom-teal text-center">${teacher.name}</h4>
-        <p class="text-center">${teacher.role}</p>
-        `;
-        return div;
-    }
-    
-    function setupCarousel() {
-        const carousel = document.querySelector('#teacher-carousel > div');
-        carousel.innerHTML = '';
-        teachers.forEach((teacher, index) => {
-            carousel.appendChild(createTeacherElement(teacher, index));
-        });
-    }
-    
+        ];
+
+        function createTeacherElement(teacher, index) {
+            const div = document.createElement('div');
+            div.className = 'teacher-item';
+            div.innerHTML = `
+                <div class="flex flex-col items-center">
+                    <img src="${timages[index].image}" alt="${teacher.name}" style="width: 96px; height: 96px; border-radius: 50%; margin-bottom: 1rem;">
+                    <h4 style="color: #008080; font-weight: 600; font-size: 1.2em;">${teacher.name}</h4>
+                    <p>${teacher.role}</p>
+                </div>
+            `;
+            return div;
+        }
+
+        function setupCarousel() {
+            const carousel = document.querySelector('#teacher-carousel > div');
+            carousel.innerHTML = '';
+            teachers.forEach((teacher, index) => {
+                carousel.appendChild(createTeacherElement(teacher, index));
+            });
+        }
+
         function rotateCarousel() {
             const carousel = document.querySelector('#teacher-carousel > div');
             const firstItem = carousel.firstElementChild;
             const itemWidth = firstItem.offsetWidth;
-    
+
             carousel.style.transition = 'transform 0.5s ease-in-out';
             carousel.style.transform = `translateX(-${itemWidth}px)`;
-    
+
             setTimeout(() => {
                 carousel.style.transition = 'none';
                 carousel.style.transform = 'translateX(0)';
                 carousel.appendChild(firstItem);
             }, 500);
         }
-    
+
+        // Initialize everything when the document loads
         document.addEventListener('DOMContentLoaded', function() {
+            updateGreeting();
             setupCarousel();
-            setInterval(rotateCarousel, 3000);
+            setInterval(updateGreeting, 60000); // Update greeting every minute
+            setInterval(rotateCarousel, 3000); // Rotate carousel every 3 seconds
         });
     </script>
-
 </body>
 </html>
