@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASRJC ICT Champions</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional if you're using CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,22 +18,101 @@
             }
         }
     </script>
+    <style>
+        .hover-title {
+            transition: color 0.3s ease, text-decoration 0.3s ease; 
+        }
+
+        .hover-title:hover {
+            color: #FFA500; 
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        a:visited {
+            color: teal;
+        }
+
+
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a href="home.html" class="hover:text-custom-orange">Home</a></li>
-                <li><a href="about.html" class="hover:text-custom-orange">About</a></li>
-                <li><a href="learn.html" class="hover:text-custom-orange">Learn</a></li>
-                <li><a href="serve.html" class="hover:text-custom-orange">Serve</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
-        <h1>Welcome to the Home Page</h1>
-        <p>This is the content for the home page.</p>
+    <!-- Serve Section -->
+    <section class="mb-12 bg-white p-6 rounded-xl shadow-lg border-t-4 border-custom-teal">
+        <h2 class="text-2xl font-bold text-custom-teal mb-4">Serve</h2>
+    <!-- Digital Literacy Outreach -->
+    <div class="p-4 rounded-xl shadow-lg border-t-4 border-custom-teal bg-gray-50 hover:bg-teal-100 transition duration-300">
+        <h3 class="text-xl font-semibold text-custom-teal">Digital Literacy Outreach</h3>
+        <p class="text-gray-600">
+            This year, our ICT champions participated in the Singapore NDE 2024 programme, learning modules about Big Data and Cloud Computing!
+        </p>
+        <p class="text-l font-semibold text-custom-teal mt-4">FIND OUT MORE ABOUT NDE:</p>
+        <div class="flex flex-col">
+            <a href="https://icdl.org/insights/big-data/" class="text-custom-teal underline hover:text-teal">Big Data</a>
+            <a href="https://icdl.org/insights/cloud-computing/" class="text-custom-teal underline hover:text-teal">Cloud Computing</a>
+        </div>
+    </div>
+<br>
+<br>
+<section class="mb-12">
+    <!-- Art Science Festival -->
+    <div class="p-4 rounded-xl shadow-lg border-t-4 border-custom-orange bg-gray-50 hover:bg-orange-100 transition duration-300">
+        <h3 class="text-xl font-semibold text-custom-orange">Art Science Festival</h3>
+        <p class="text-gray-600">We share ICT skills and emerging technologies with JC1 students, partner secondary school students, and teachers. We also participate in the International Elementz Fair to encourage STEM innovations!</p>
+        <p class="text-l font-semibold text-custom-orange mt-4">FIND OUT MORE ABOUT ASFEST:</p>
+        <div class="flex flex-col">
+            <a href="https://www.asrjc.moe.edu.sg/open-house-2024/specialprog/" class="text-custom-orange underline hover:text-orange">ART SCIENCE FESTIVAL</a>
+            <a href="https://www.asrjc.moe.edu.sg/special-programmes/elementz-international-science-research-conference-and-exhibition/" class="text-custom-orange underline hover:text-orange">INTERNATIONAL ELEMENTZ FAIR</a>
+        </div>
+    </div>
+</section>
+
+<section class="mb-12">
+    <!-- Industry Attachment -->
+    <div class="p-4 rounded-xl shadow-lg border-t-4 border-custom-teal bg-gray-50 hover:bg-teal-100 transition duration-300">
+        <h3 class="text-xl font-semibold text-custom-teal">Industry Attachment</h3>
+        <p class="text-gray-600">We collaborate on projects with organisations with a social mission.</p>
+    </div>
+</section>
+
+<section class="mb-12">
+    <!-- Hacktoberfest -->
+    <div class="p-4 rounded-xl shadow-lg border-t-4 border-custom-orange bg-gray-50 hover:bg-orange-100 transition duration-300 mt-4">
+        <h3 class="text-xl font-semibold text-custom-orange">
+            <a href="https://hacktoberfest.com" class="hover:text-orange">Hacktoberfest</a>
+        </h3>
+        <p class="text-gray-600">
+            We learn about and contribute to the global open source movement to promote openness and a love for sharing and collaborating. In fact, this website is a product of Hacktoberfest. :)
+        </p>
+        <p class="text-l font-semibold text-custom-orange mt-4">FIND OUT MORE ABOUT HACKTOBERFEST:</p>
+        <div class="flex flex-col">
+            <a href="https://hacktoberfest.com/" class="text-custom-orange underline hover:text-teal">HACKTOBERFEST!</a>
+        </div>
+    </div>
+</section>
+
+<section class="mb-12">
+    <!-- Deepfake Workshop 2024 -->
+    <div class="p-4 rounded-xl shadow-lg border-t-4 border-custom-teal bg-gray-50 hover:bg-teal-100 transition duration-300 mt-4">
+        <h3 class="text-xl font-semibold text-custom-teal">Deepfake Workshop</h3>
+        <p class="text-gray-600">Our dedicated JC2s have conducted workshops on deepfake to spread awareness of how to prevent misinformation and its negative impacts. Try making one of the deepfake videos now!</p>
+        <p class="text-l font-semibold text-custom-orange mt-4">CLICK HERE TO CREATE A DEEPFAKE:</p>
+        <div class="flex flex-col">
+            <a href="https://deepfakesweb.com/" class="text-custom-teal underline hover:text-teal">CREATE A DEEPFAKE!</a>
+        </div>
+    </div>
+</section>
+
+<section class="mb-12">
+    <!-- Cyberwellness Week -->
+    <div class="p-4 rounded-xl shadow-lg border-t-4 border-custom-orange bg-gray-50 hover:bg-orange-100 transition duration-300 mt-4">
+        <h3 class="text-xl font-semibold text-custom-orange">Cyberwellness Week</h3>
+        <p class="text-gray-600">The ICT Champions have organised some booth activities including quizzes and games to share more digital-related knowledge with their peers!</p>
+    </div>
+</section>
+    </div>
+</section>
     </main>
 </body>
 </html>

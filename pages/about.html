@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASR ICT Champions</title>
     <style>
+	.hover-title {
+            transition: color 0.3s ease, text-decoration 0.3s ease; 
+        }
+
+        .hover-title:hover {
+            color: #008080; 
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    a:visited {
+        color: teal; /* Change this to your desired color */
+    }
         /* Base styling */
         body {
             font-family: Calibri, sans-serif;
@@ -14,32 +26,45 @@
         }
 
         /* Header styling */
-        .header {
-            height: 300px; 
-            background-image: url('asrbanner.png'); 
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
+.header {
+    height: 300px;
+    background-image: url('new-banner.jpg'); /* Replace with the new image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
 
-        .header-content {
-            background: rgba(0, 0, 0, 0.5); 
-            padding: 20px;
-            border-radius: 8px; 
-        }
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for better readability */
+}
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+.header-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 8px;
+}
 
-        p {
-            font-size: 1.2em;
-        }
+.header-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header-content p {
+    font-size: 1.2em;
+}
 
         /* Grid styling */
         .grid {
@@ -64,57 +89,56 @@
         /* Flip card styling */
         .flip-card {
             background-color: transparent;
-            width: 100%;
-            height: 400px;
+            width: 300px;
+            height: 300px;  /* Reduced from 400px */
             perspective: 1000px;
-            margin-bottom: 20px;
+            margin: auto;
+            margin-bottom: 2rem;  /* Added margin bottom for gap between rows */
         }
 
         .flip-card-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            text-align: center;
             transition: transform 0.6s;
             transform-style: preserve-3d;
-            cursor: pointer;
         }
 
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
 
-        .flip-card-front, .flip-card-back {
+        .flip-card-front,
+        .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 8px;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .flip-card-front {
-            background-color: white;
-            color: black;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #008080;
+            color: white;
+	    text-align: center;
         }
 
         .flip-card-back {
-            background-color: #008080;
+            background-color: #FF7F50; 
             color: white;
             transform: rotateY(180deg);
-            padding: 20px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            text-align: center;
+            padding: 20px;
         }
 
-        .flip-card img {
-            width: 100%;
-            height: 200px;
+        /* Adjust image height in flip cards */
+        .flip-card-front img {
+            height: 150px;  /* Reduced from 48 */
             object-fit: cover;
-            border-radius: 8px;
         }
 
         /* Carousel styling */
@@ -148,12 +172,14 @@
 
 <body>
     <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <h1>About Us</h1>
-            <p>ICT Champions</p>
-        </div>
-    </header>
+<header class="header">
+    <div class="header-overlay"></div> <!-- Overlay for better text visibility -->
+    <div class="header-content">
+        <h1>About Us</h1>
+        <p>We are the ICT Champions of ASRJC.</p>
+    </div>
+</header>
+
 
     <!-- Main Content Section -->
     <div class="main-content">
@@ -161,10 +187,9 @@
         <p>The ASRJC ICT Champions programme is an initiative at Anderson Serangoon Junior College in Singapore, aimed at enhancing digital literacy among students. The programme provides students with opportunities to develop and apply their ICT skills through various activities and projects. ICT Champions act as peer leaders, guiding their schoolmates and participating in events that promote digital literacy skills across the college community. This role helps students gain valuable hard and soft skills as well as leadership abilities through experiential learning and service while contributing to the college's digital initiatives.</p>
     </div>
 
-    <!-- People Section -->
-    <section class="mb-12">
-        <h2 style="color: #008080; font-size: 2em; margin-top: 30px;">People</h2>
-        <div class="grid">
+<!--edit your profile here!-->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-custom-teal mb-4">Our People</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -243,13 +268,13 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front bg-white p-4 rounded shadow">
                             <h3 class="text-xl font-semibold text-custom-orange text-center">JAYAVADIVELAN SARAVANAN</h3>
-                            <p class="text-gray-600 text-center">ICT Rep 25/01</p>
-			    <img src="static/JAYAVADIVELANSARAVANAN.png" alt="JAYAVADIVELAN SARAVANAN" class="w-full h-48 object-cover mb-4 rounded">
+                            <p class="text-gray-600 text-center">ICT Champion 25/01</p>
+			    <img src="static/JAYAVADIVELAN.jpeg" alt="JAYAVADIVELAN SARAVANAN" class="w-full h-48 object-cover mb-4 rounded">
                         </div>
                         <div class="flip-card-back">
                             <h3 class="text-xl font-semibold">About JAYAVADIVELAN SARAVANAN</h3>
-                            <p>JAYAVADIVELAN SARAVANAN is a cute little boy.</p>
-                            <p>Github: <a href="https://github.com/">JAYAVADIVELAN SARAVANAN</a></p>
+                            <p>JAYAVADIVELAN SARAVANAN LOVES CODING and INTERACTING WITH AI.</p>
+                            <p>Github: <a href="https://github.com/Nexgen-Jay">Nexgen-Jay</a></p>
                         </div>
                     </div>
                 </div>
@@ -294,7 +319,7 @@
                         <div class="flip-card-back">
                             <h3 class="text-xl font-semibold">About JONATHAN LIM HONG EN</h3>
                             <p>JONATHAN LIM HONG EN is a dude.</p>
-                            <p>Github: <a href="https://github.com/">JONATHAN LIM HONG EN</a></p>
+                            <p>Github: <a href="https://github.com/ArchFireGT">ArchFireGT</a></p>
                         </div>
                     </div>
                 </div>
@@ -549,7 +574,7 @@
                         </div>
                        <div class="flip-card-back bg-teal-500">
                             <h3 class="bg-teal text-xl font-semibold">About DANIYAL MIKHAIL BIN RIZAL</h3>
-                            <p>Greetings I am Daniyal. I like tech stuff and coding, and love to contribute to solving the world issues!</p>
+                            <p>Hello I can somewhat code somehow.</p>
                             <p>Github: <a href="https://github.com/DWizard11">DWizard11</a></p>
                         </div>
                     </div>
@@ -666,12 +691,12 @@
                         <div class="flip-card-front bg-white p-4 rounded shadow">
                             <h3 class="text-xl font-semibold text-custom-orange text-center">ASHLEY TAN I WERN</h3>
                             <p class="text-gray-600 text-center">ICT Rep 25/23</p>
-			    <img src="static/ASHLEYTANIWERN.png" alt="ASHLEY TAN I WERN" class="w-full h-48 object-cover mb-4 rounded">
+			    <img src="static/ASHLEYTANIWERN.jpeg" alt="ASHLEY TAN I WERN" class="w-full h-48 object-cover mb-4 rounded">
                         </div>
                         <div class="flip-card-back">
                             <h3 class="text-xl font-semibold">About ASHLEY TAN I WERN</h3>
-                            <p>ASHLEY TAN I WERN is a cute little boy.</p>
-                            <p>Github: <a href="https://github.com/">ASHLEY TAN I WERN</a></p>
+                            <p>ASHLEY TAN I WERN is a ict champion.</p>
+                            <p>Github: <a href="https://github.com/ash9220">ash9220</a></p>
                         </div>
                     </div>
                 </div>
@@ -703,9 +728,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </div>				
+	
+	
+        </section>
 
     <!-- Teachers Section -->
     <section class="mb-12 bg-white p-6 rounded-xl shadow-lg" style="border-top: 4px solid #008080;">
@@ -805,5 +831,10 @@
             setInterval(rotateCarousel, 3000); // Rotate carousel every 3 seconds
         });
     </script>
+	<div class="text-center mt-6">
+    <a href=https://asrictchamps.github.io/home/ class="px-4 py-2 bg-custom-orange text-white font-semibold rounded hover:bg-custom-teal">
+        Back to Homepage
+    </a>
+</div>
 </body>
 </html>
