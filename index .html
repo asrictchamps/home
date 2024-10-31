@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASRJC ICT Champions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-orange': '#FF7F50',
+                        'custom-teal': '#008080',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Previous styles remain the same */
+        .hover-title {
+            transition: color 0.3s ease, text-decoration 0.3s ease; 
+        }
+
+        .hover-title:hover {
+            color: #FFA500; 
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        a:visited {
+            color: teal;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .mySlides {
+            display: none;
+            animation: fade 1.5s ease-in-out;
+        }
+
+        img {
+            border-radius: 10px;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .caption {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #FFA500;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* New styles for the call-to-action section */
+        .cta-card {
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .cta-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .cta-card:hover::before {
+            left: 100%;
+        }
+
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .modal.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+        animation: slideIn 0.3s ease-in-out;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .close-modal:hover {
+        color: #000;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 0.5rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #008080;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #4a5568;
+        font-weight: 500;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .success-message {
+        display: none;
+        background-color: #4CAF50;
+        color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        text-align: center;
+    }
+.testimonial-card {
+    transform: translateY(0);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-image {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-image {
+    transform: scale(1.05);
+}
+
+.quote-icon {
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .quote-icon {
+    opacity: 0.4;
+    transform: rotate(10deg);
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideInFromBottom 0.8s ease forwards;
+}
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header remains the same -->
+    <header class="bg-custom-teal text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="static/asrjc.png" alt="ASRJC Logo" class="w-12 h-12 mr-4 rounded-xl">
+                <h1 class="text-2xl font-bold text-custom-orange">ASRJC ICT Champions</h1>
+            </div>
+            <nav class="ml-8">
+                <ul class="flex space-x-8">
+                    <li><a href="pages/home.html" class="hover:text-custom-orange visited:text-white">Home</a></li>
+                    <li><a href="pages/about.html" class="hover:text-custom-orange visited:text-white">About</a></li>
+                    <li><a href="pages/learn.html" class="hover:text-custom-orange visited:text-white">Learn</a></li>
+                    <li><a href="pages/serve.html" class="hover:text-custom-orange visited:text-white">Serve</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <!-- Greeting Section remains the same -->
+        <section class="mb-12">
+            <h2 id="greeting" class="text-3xl font-bold text-custom-teal mb-4"></h2>
+            <p class="text-gray-700">The ASRJC ICT Champions programme is an initiative started in 2021 at Anderson Serangoon Junior College in Singapore, aimed at enhancing digital literacy among students. The programme provides students with opportunities to develop and apply their ICT skills through various activities and projects. ICT Champions act as peer leaders, guiding their schoolmates and participating in events that promote digital literacy skills across the college community. This role helps students gain valuable hard and soft skills as well as leadership abilities through experiential learning and service while contributing to the college's digital initiatives​.</p>
+        </section>
+
+        <!-- Slideshow section remains the same -->
+        <section class="mt-8">
+            <h2 class="text-2xl font-bold text-custom-teal mb-4">Recent Events</h2>
+            <div class="relative w-full mx-auto">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <img src="static/event1.jpg" alt="Event 1">
+                        <div class="caption">A visit to Google Singapore by ICT Champions</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="static/event2.jpg" alt="Event 2">
+                        <div class="caption">A visit to Google Singapore by ICT Champions</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="static/event3.jpg" alt="Event 3">
+                        <div class="caption">Cyberwellness week in collaboration with AI Singapore!</div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+<section class="mt-16 mb-12">
+    <h2 class="text-2xl font-bold text-custom-teal mb-8 text-center">What Our ICT Champions Say</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/api/placeholder/400/300" alt="Student 1" class="testimonial-image w-full h-48 object-cover">
+                <svg class="quote-icon w-12 h-12 absolute top-4 right-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <h3 class="text-lg font-semibold text-custom-teal">Teh Kim Wee</h3>
+                    <span class="ml-2 text-sm text-gray-500">ICT Champion (22/23)</span>
+                </div>
+                <p class="text-gray-700">"Being an ICT Champion has opened so many doors for me. I've learned valuable skills in web development and had the opportunity to mentor my peers. The Google Singapore visit was definitely a highlight!"</p>
+            </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/api/placeholder/400/300" alt="Student 2" class="testimonial-image w-full h-48 object-cover">
+                <svg class="quote-icon w-12 h-12 absolute top-4 right-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <h3 class="text-lg font-semibold text-custom-teal">Raj Kumar</h3>
+                    <span class="ml-2 text-sm text-gray-500">JC1 Student</span>
+                </div>
+                <p class="text-gray-700">"The cybersecurity workshops we organized during Cyberwellness Week were eye-opening. It's amazing to see how our initiatives are helping create a more digitally aware school community."</p>
+            </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/api/placeholder/400/300" alt="Student 3" class="testimonial-image w-full h-48 object-cover">
+                <svg class="quote-icon w-12 h-12 absolute top-4 right-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <h3 class="text-lg font-semibold text-custom-teal">Amanda Tan</h3>
+                    <span class="ml-2 text-sm text-gray-500">Alumni</span>
+                </div>
+                <p class="text-gray-700">"The leadership skills I gained as an ICT Champion helped me secure my university placement. The program truly prepares you for the digital future while making a positive impact."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- New Call-to-Action Section -->
+        <section class="mt-16 mb-12" data-aos="fade-up">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Join Us Card -->
+                <div class="cta-card bg-white rounded-lg shadow-lg p-8 border-t-4 border-custom-orange">
+                    <div class="flex items-center mb-6">
+                        <svg class="w-8 h-8 text-custom-orange float-animation" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-custom-teal ml-4">Join ICT Champions!</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Become part of our dynamic community of tech enthusiasts. As an ICT Champion, you'll:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 mb-8 space-y-3">
+                        <li class="transform hover:translate-x-2 transition-transform">Develop valuable digital skills</li>
+                        <li class="transform hover:translate-x-2 transition-transform">Lead technology initiatives</li>
+                        <li class="transform hover:translate-x-2 transition-transform">Connect with industry professionals</li>
+                        <li class="transform hover:translate-x-2 transition-transform">Make a difference in our college community</li>
+                    </ul>
+                    <button class="cta-button bg-custom-orange text-white px-8 py-4 rounded-lg font-semibold w-full md:w-auto text-center transform hover:scale-105 transition-transform">
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- Help Us Improve Card -->
+                <div class="cta-card bg-white rounded-lg shadow-lg p-8 border-t-4 border-custom-teal">
+                    <div class="flex items-center mb-6">
+                        <svg class="w-8 h-8 text-custom-teal float-animation" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-custom-teal ml-4">Help Us Improve</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Have ideas on how we can enhance digital literacy at ASRJC? We'd love to hear from you!
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 mb-8 space-y-3">
+                        <li class="transform hover:translate-x-2 transition-transform">Share your suggestions</li>
+                        <li class="transform hover:translate-x-2 transition-transform">Propose new initiatives</li>
+                        <li class="transform hover:translate-x-2 transition-transform">Collaborate on projects</li>
+                        <li class="transform hover:translate-x-2 transition-transform">Help shape our future programs</li>
+                    </ul>
+                    <button onclick="openModal()" class="cta-button bg-custom-teal text-white px-8 py-4 rounded-lg font-semibold w-full md:w-auto text-center transform hover:scale-105 transition-transform">
+                        Share Feedback
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+    function openModal() {
+        document.getElementById('feedbackModal').classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+
+    function closeModal() {
+        document.getElementById('feedbackModal').classList.remove('show');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.getElementById('successMessage').style.display = 'none'; // Hide success message
+        document.getElementById('feedbackForm').reset(); // Reset form
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('feedbackModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Handle form submission
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Here you would typically send the data to your server
+        console.log('Form submitted with data:', data);
+        
+        // Show success message
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // Hide form
+        event.target.style.display = 'none';
+        
+        // Close modal after 3 seconds
+        setTimeout(() => {
+            closeModal();
+            event.target.style.display = 'block'; // Show form again for future submissions
+        }, 3000);
+    }
+
+    // Add escape key listener to close modal
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+        // Previous JavaScript remains the same
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";  
+            dots[slideIndex - 1].className += " active";
+        }
+
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+
+        function updateGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const currentHour = new Date().getHours();
+            let greeting;
+
+            if (currentHour < 12) {
+                greeting = 'Good morning';
+            } else if (currentHour < 18) {
+                greeting = 'Good afternoon';
+            } else {
+                greeting = 'Good evening';
+            }
+
+            greetingElement.textContent = `${greeting}, welcome to ICT Champions!`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateGreeting();
+            setInterval(updateGreeting, 60000);
+        });
+    </script>
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3 class="text-2xl font-bold text-custom-teal mb-6">Share Your Feedback</h3>
+        
+        <form id="feedbackForm" onsubmit="handleSubmit(event)" class="space-y-6">
+            <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" required class="form-input" placeholder="Your name">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="Your email">
+            </div>
+
+            <div class="form-group">
+                <label for="category" class="form-label">Feedback Category</label>
+                <select id="category" name="category" required class="form-input">
+                    <option value="">Select a category</option>
+                    <option value="suggestion">General Suggestion</option>
+                    <option value="initiative">New Initiative Proposal</option>
+                    <option value="collaboration">Collaboration Opportunity</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message" class="form-label">Your Feedback</label>
+                <textarea id="message" name="message" required class="form-input" rows="4" placeholder="Share your thoughts..."></textarea>
+            </div>
+
+            <button type="submit" class="cta-button bg-custom-teal text-white px-6 py-3 rounded-lg font-semibold w-full transform hover:scale-105 transition-transform">
+                Submit Feedback
+            </button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            Thank you for your feedback! We'll get back to you soon.
+        </div>
+    </div>
+</div>
+</body>
+</html>
